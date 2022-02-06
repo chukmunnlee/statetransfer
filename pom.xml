@@ -6,16 +6,82 @@
 
   <groupId>com.chuklee.code</groupId>
   <artifactId>statetransfer</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>statetransfer</name>
-  <url>https://github.com:chukmunnlee/statetransfer</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-  </properties>
+	<description>
+		Angular Universal supports state transfer from server to client; 
+		state transfer allows the server to embed startup data into the client.
+		The Angular client can retrieve this embedded data rather than making a
+		XHR call to the server. See https://angular.io/api/platform-browser/TransferState
+		This is a utility library for injecting states into Angular application from 
+		within a Java application. It does not support full Angular Universal features
+		like service injection and rendering views.
+	</description>
+	<inceptionYear>2022</inceptionYear>
+	<url>https://github.com:chukmunnlee/statetransfer</url>
+
+	<organization>
+		<name>Chuk Lee</name>
+		<url>https://github.com/chukmunnlee</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>chukmunnlee</id>
+			<name>Lee Chuk Munn</name>
+			<email>chukmunnlee@gmail.com</email>
+			<url>http://www.example.com/jdoe</url>
+			<roles>
+			<role>developer</role>
+			</roles>
+			<timezone>UTC+08:00</timezone>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>Lee Chuk Munn</name>
+			<email>chukmunnlee@gmail.com</email>
+			<roles>
+				<role>maintainer</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<scm>
+		<connection>scm:git@github.com:chukmunnlee/statetransfer.git</connection>
+		<developerConnection>scm:git@github.com:chukmunnlee/statetransfer.git</developerConnection>
+		<url>https://github.com/chukmunnlee/statetransfer</url>
+	  	<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<distributionManagement>
+	  <snapshotRepository>
+		 <id>ossrh</id>
+		 <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+	  </snapshotRepository>
+	  <repository>
+		 <id>ossrh</id>
+		 <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+	  </repository>
+	</distributionManagement>
 
   <dependencies>
     <dependency>
@@ -25,62 +91,63 @@
       <scope>test</scope>
     </dependency>
 
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>jakarta.json</artifactId>
-			<version>2.0.1</version>
-		</dependency>
+	<dependency>
+		<groupId>org.glassfish</groupId>
+		<artifactId>jakarta.json</artifactId>
+		<version>2.0.1</version>
+	</dependency>
   </dependencies>
 
-  <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-      </plugins>
+	<build>
+		<pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+		<plugins>
+			<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>
+			<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+			</plugin>
+			<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+		</plugins>
     </pluginManagement>
 
-	 <plugins>
+	<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-source-plugin</artifactId>
+			<version>3.2.1</version>
 			<executions>
 				<execution>
 					<id>attach-sources</id>
@@ -93,6 +160,7 @@
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>3.3.1</version>
 			<executions>
 				<execution>
 					<id>attach-javadocs</id>
@@ -103,6 +171,44 @@
 			</executions>
 		</plugin>
 
-	 </plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-gpg-plugin</artifactId>
+			<version>3.0.1</version>
+			<executions>
+				<execution>
+					<id>sign-artifacts</id>
+					<phase>verify</phase>
+					<goals>
+						<goal>sign</goal>
+					</goals>
+					<configuration>
+						<keyname>287B2D95308B18AE</keyname>
+						<passphraseServerId>287B2D95308B18AE</passphraseServerId>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+
+		<plugin>
+			<groupId>org.sonatype.plugins</groupId>
+			<artifactId>nexus-staging-maven-plugin</artifactId>
+			<version>1.6.8</version>
+			<extensions>true</extensions>
+			<configuration>
+				<serverId>ossrh</serverId>
+				<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+				<autoReleaseAfterClose>true</autoReleaseAfterClose>
+			</configuration>
+			<dependencies>
+				<dependency>
+					<groupId>com.thoughtworks.xstream</groupId>
+					<artifactId>xstream</artifactId>
+					<version>1.4.15</version> <!-- apparently this needs to be exactly this version -->
+				</dependency>
+			</dependencies>
+		</plugin>
+
+	</plugins>
   </build>
 </project>
